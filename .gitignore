@@ -1,0 +1,31 @@
+# Maven
+target/
+**/target/
+.mvn/wrapper/maven-wrapper.jar
+dependency-reduced-pom.xml
+
+# NetBeans / IDEs
+nb-configuration.xml
+nbactions*.xml
+**/nbproject/private/
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Runtime & local config
+runtime/
+logs/
+*.log
+.env
+*.local.properties
+
+# Derby (embedded DB files) — keep your DB outside the repo ideally
+derby.log
+**/derby.log
+**/seg0/
+**/log/
+**/tmp/
