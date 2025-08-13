@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.injurytime</groupId>
+  <artifactId>injurytime-suite</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+
+  <modules>
+    <!-- Base -->
+    <module>base/app.branding</module>
+    <module>base/app.core</module>
+    <module>base/app.options</module>
+
+    <!-- Data -->
+    <module>data/model.api</module>
+    <module>data/resolver.api</module>
+    <module>data/resolver.impl.basic</module>
+    <module>data/resolver.impl.db</module>
+    <module>data/storage.api</module>
+    <module>data/storage.impl.jpa</module>
+
+    <!-- Ingest -->
+    <module>ingest/gmail.api</module>
+    <module>ingest/gmail.impl.google</module>
+    <module>ingest/webfetch.api</module>
+    <module>ingest/webfetch.impl.jsoup</module>
+    <module>ingest/alerts.parser</module>
+    <module>ingest/pipeline.ingest</module>
+
+    <!-- NLP -->
+    <module>nlp/extractor.api</module>
+    <module>nlp/extractor.impl.openai</module>
+    <module>nlp/dedupe.logic</module>
+
+    <!-- UI -->
+    <module>ui/ui.dashboard</module>
+    <module>ui/ui.resolution</module>
+    <module>ui/ui.search</module>
+    <module>ui/ui.logs</module>
+    <module>ui/ui.actions</module>
+  </modules>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- NetBeans Platform BOM -->
+      <dependency>
+        <groupId>org.netbeans.api</groupId>
+        <artifactId>org-netbeans-modules-nbm-maven-bom</artifactId>
+        <version>RELEASE123</version> <!-- Use your NB version -->
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>nbm-maven-plugin</artifactId>
+            <version>4.8</version>  <!-- 4.7+ is fine; 4.8 is current -->
+            <extensions>true</extensions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
