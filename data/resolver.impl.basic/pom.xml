@@ -9,6 +9,7 @@
     </parent>
     <artifactId>resolver.impl.basic</artifactId>
     <packaging>nbm</packaging>
+   
     <build>
         <plugins>
             <plugin>
@@ -33,11 +34,12 @@
             </plugin>
         </plugins>
     </build>
+        
     <dependencies>
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-netbeans-api-annotations-common</artifactId>
-            <version>RELEASE230</version>
+            <version>RELEASE260</version>
         </dependency>
         <dependency>
             <groupId>com.injurytime</groupId>
@@ -49,9 +51,14 @@
             <artifactId>model.api</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-openide-util-lookup</artifactId>
+            <version>${netbeans.release}</version>
+        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>17</maven.compiler.release>
+        <maven.compiler.release>21</maven.compiler.release>
     </properties>
 </project>

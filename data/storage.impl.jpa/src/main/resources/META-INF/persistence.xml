@@ -1,0 +1,31 @@
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
+  <persistence-unit name="injurytimePU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+    <!-- List entities or rely on classpath scanning -->
+    <class>com.injurytime.storage.jpa.entity.Player</class>
+    <class>com.injurytime.storage.jpa.entity.Club</class>
+    <class>com.injurytime.storage.jpa.entity.LeagueSeason</class>
+    <class>com.injurytime.storage.jpa.entity.ClubSeason</class>
+    <class>com.injurytime.storage.jpa.entity.SquadRoster</class>
+    <class>com.injurytime.storage.jpa.entity.PlayerAlias</class>
+    <class>com.injurytime.storage.jpa.entity.ClubAlias</class>
+    <class>com.injurytime.storage.jpa.entity.ResolutionOverride</class>
+    <class>com.injurytime.storage.jpa.entity.ClubDomainHint</class>
+
+    <properties>
+      <!-- Derby embedded -->
+      <property name="jakarta.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:derby:/path/to/your/db;create=true"/>
+      <property name="jakarta.persistence.jdbc.user" value="app"/>
+      <property name="jakarta.persistence.jdbc.password" value="app"/>
+
+      <!-- Hibernate -->
+      <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect"/>
+      <property name="hibernate.hbm2ddl.auto" value="validate"/>
+      <property name="hibernate.show_sql" value="false"/>
+    </properties>
+  </persistence-unit>
+</persistence>
+
+

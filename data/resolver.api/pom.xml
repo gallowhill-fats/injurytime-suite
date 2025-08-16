@@ -9,35 +9,49 @@
     </parent>
     <artifactId>resolver.api</artifactId>
     <packaging>nbm</packaging>
+    
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.netbeans.utilities</groupId>
-                <artifactId>nbm-maven-plugin</artifactId>
-                <extensions>true</extensions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.4.2</version>
-                <configuration>
-                    <archive>
-                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
-                    </archive>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+  <plugins>
+    
+
+    <!-- Compile everything for Java 21 -->
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.13.0</version>
+      <configuration>
+        <release>21</release>
+      </configuration>
+    </plugin>
+
+    
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-jar-plugin</artifactId>
+      <version>3.4.2</version>
+    </plugin>
+    
+   
+    <plugin>
+      <groupId>org.apache.netbeans.utilities</groupId>
+      <artifactId>nbm-maven-plugin</artifactId>
+      <version>14.3</version>
+      <extensions>true</extensions>
+      <configuration>
+        <publicPackages>
+          <publicPackage>com.injurytime.resolver.api</publicPackage>
+        </publicPackages>
+      </configuration>
+    </plugin>
+  
+    
+  </plugins>
+</build>
     <dependencies>
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-netbeans-api-annotations-common</artifactId>
-            <version>RELEASE230</version>
+            <version>RELEASE260</version>
         </dependency>
         <dependency>
             <groupId>com.injurytime</groupId>
@@ -47,6 +61,7 @@
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>17</maven.compiler.release>
+        <maven.compiler.release>21</maven.compiler.release>
+        <netbeans.release>RELEASE260</netbeans.release>  <!-- or RELEASE250 if you stay on NB 25 -->
     </properties>
 </project>

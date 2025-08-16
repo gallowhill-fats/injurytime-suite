@@ -9,39 +9,116 @@
     </parent>
     <artifactId>resolver.impl.db</artifactId>
     <packaging>nbm</packaging>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.netbeans.utilities</groupId>
-                <artifactId>nbm-maven-plugin</artifactId>
-                <extensions>true</extensions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.4.2</version>
-                <configuration>
-                    <archive>
-                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
-                    </archive>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    
+   <build>
+  <plugins>
+    <plugin>
+      <groupId>org.apache.netbeans.utilities</groupId>
+      <artifactId>nbm-maven-plugin</artifactId>
+      <version>14.3</version>
+      <extensions>true</extensions>
+
+      <!-- TEMPORARY: unblock while you iterate; remove once green -->
+      <!--<configuration>
+        <skipClusterDependenciesVerification>true</skipClusterDependenciesVerification>
+      </configuration>-->
+
+      <executions>
+        <execution>
+          <goals>
+            <goal>manifest</goal>
+            <goal>nbm</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-jar-plugin</artifactId>
+      <version>3.4.2</version>
+      <configuration>
+        <archive>
+          <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+        </archive>
+      </configuration>
+    </plugin>
+
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.13.0</version>
+      <configuration><release>21</release></configuration>
+    </plugin>
+  </plugins>
+</build>
+    
     <dependencies>
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-netbeans-api-annotations-common</artifactId>
-            <version>RELEASE230</version>
+            <version>RELEASE260</version>
         </dependency>
+        <dependency>
+      <groupId>com.injurytime</groupId>
+      <artifactId>resolver.api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.injurytime</groupId>
+      <artifactId>model.api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.injurytime</groupId>
+      <artifactId>storage.api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>com.injurytime</groupId>
+        <artifactId>storage.impl.jpa</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-text</artifactId>
+      <version>1.12.0</version>
+    </dependency>
+    <dependency>
+        <groupId>org.netbeans.api</groupId>
+        <artifactId>org-openide-util-lookup</artifactId>
+        <version>${netbeans.release}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.derby</groupId>
+        <artifactId>derby</artifactId>
+        <version>10.17.1.0</version> <!-- use latest stable -->
+    </dependency>
+
+  <!-- ✅ JPA types you import (EntityManager, Query, etc.) -->
+  <dependency>
+    <groupId>jakarta.persistence</groupId>
+    <artifactId>jakarta.persistence-api</artifactId>
+    <version>3.1.0</version>
+  </dependency>
+  <!-- Often referenced even in RESOURCE_LOCAL setups -->
+  <dependency>
+    <groupId>jakarta.transaction</groupId>
+    <artifactId>jakarta.transaction-api</artifactId>
+    <version>2.0.1</version>
+  </dependency>
+
+  <!-- Only add Hibernate core if your code imports org.hibernate.* directly -->
+  <!--
+  <dependency>
+    <groupId>org.hibernate.orm</groupId>
+    <artifactId>hibernate-core</artifactId>
+    <version>6.5.2.Final</version>
+  </dependency>
+  -->
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>17</maven.compiler.release>
+        <maven.compiler.release>21</maven.compiler.release>
     </properties>
 </project>
