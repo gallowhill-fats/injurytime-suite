@@ -13,27 +13,76 @@ import java.time.LocalDateTime;
 @Table(name = "SQUAD_ROSTER")
 @IdClass(SquadRosterId.class)
 public class SquadRoster {
-    @Id @Column(name = "LEAGUE_API_ID")  private Integer leagueApiId;
-    @Id @Column(name = "SEASON")         private Integer season;
-    @Id @Column(name = "API_CLUB_ID")    private Integer apiClubId;
-    @Id @Column(name = "PLAYER_API_ID")  private Integer playerApiId;
 
-    @Column(name = "POSITION_CODE", length = 12) private String positionCode;
-    @Column(name = "SHIRT_NUMBER")               private Integer shirtNumber;
-    @Column(name = "ON_LOAN", length = 1)        private String onLoan;          // 'Y'/'N'
-    @Column(name = "LOAN_FROM_CLUB")             private Integer loanFromClub;
-    @Column(name = "JOIN_DATE")                  private LocalDate joinDate;
-    @Column(name = "LEAVE_DATE")                 private LocalDate leaveDate;
-    @Column(name = "UPDATED")                    private LocalDateTime updated;
+  // ---- PRIMARY KEY ----
+  @Id
+  @Column(name = "SEASON_ID", nullable = false)
+  private String seasonId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "PLAYER_API_ID", referencedColumnName = "PLAYER_API_ID", insertable=false, updatable=false)
-    private Player player;
+  @Id
+  @Column(name = "API_CLUB_ID", nullable = false)
+  private Integer apiClubId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "API_CLUB_ID", referencedColumnName = "API_CLUB_ID", insertable=false, updatable=false)
-    private Club club;
+  @Id
+  @Column(name = "PLAYER_API_ID", nullable = false)
+  private Integer playerApiId;
 
-    // getters/setters …
+  // ---- NON-KEY FIELDS ----
+  @Column(name = "POSITION_CODE")
+  private String positionCode;
+
+  @Column(name = "SHIRT_NUMBER")
+  private Integer shirtNumber;
+
+  @Column(name = "ON_LOAN")
+  private Boolean onLoan;
+
+  // If this is an INT in DB, change type to Integer and keep the @Column as-is.
+  @Column(name = "LOAN_FROM_CLUB")
+  private String loanFromClub;
+
+  @Column(name = "JOIN_DATE")
+  private LocalDate joinDate;
+
+  @Column(name = "LEAVE_DATE")
+  private LocalDate leaveDate;
+
+  @Column(name = "UPDATED")
+  private LocalDateTime updated;
+
+  // ---- CTOR ----
+  public SquadRoster() {}
+
+  // ---- GETTERS/SETTERS (canonical names) ----
+  public String getSeasonId() { return seasonId; }
+  public void setSeasonId(String seasonId) { this.seasonId = seasonId; }
+
+  public Integer getApiClubId() { return apiClubId; }
+  public void setApiClubId(int apiClubId) { this.apiClubId = apiClubId; }
+
+  public Integer getPlayerApiId() { return playerApiId; }
+  public void setPlayerApiId(int playerApiId) { this.playerApiId = playerApiId; }
+
+  public String getPositionCode() { return positionCode; }
+  public void setPositionCode(String positionCode) { this.positionCode = positionCode; }
+
+  public Integer getShirtNumber() { return shirtNumber; }
+  public void setShirtNumber(Integer shirtNumber) { this.shirtNumber = shirtNumber; }
+
+  public Boolean getOnLoan() { return onLoan; }
+  public void setOnLoan(Boolean onLoan) { this.onLoan = onLoan; }
+
+  public String getLoanFromClub() { return loanFromClub; }
+  public void setLoanFromClub(String loanFromClub) { this.loanFromClub = loanFromClub; }
+
+  public LocalDate getJoinDate() { return joinDate; }
+  public void setJoinDate(LocalDate joinDate) { this.joinDate = joinDate; }
+
+  public LocalDate getLeaveDate() { return leaveDate; }
+  public void setLeaveDate(LocalDate leaveDate) { this.leaveDate = leaveDate; }
+
+  public LocalDateTime getUpdated() { return updated; }
+  public void setUpdated(LocalDateTime updated) { this.updated = updated; }
 }
+
 
