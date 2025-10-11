@@ -5,29 +5,28 @@
         <groupId>com.injurytime</groupId>
         <artifactId>injurytime-suite</artifactId>
         <version>1.0.0</version>
-        <relativePath>../..</relativePath>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
-   
-    <artifactId>app.branding</artifactId>
+    <artifactId>lib.jpa</artifactId>
     <packaging>nbm</packaging>
-    <name>app.branding</name>
-    
-    
     <build>
         <plugins>
             <plugin>
-        <groupId>org.apache.netbeans.utilities</groupId>
-        <artifactId>nbm-maven-plugin</artifactId>
-        <version>14.3</version>
-        <extensions>true</extensions>
-        <configuration>
-          <brandingToken>${brandingToken}</brandingToken>
-        </configuration>
-      </plugin>
+                <groupId>org.apache.netbeans.utilities</groupId>
+                <artifactId>nbm-maven-plugin</artifactId>
+                <version>14.3</version>
+                <extensions>true</extensions>
+                <configuration>
+                  <publicPackages>
+                    <publicPackage>jakarta.persistence.*</publicPackage>
+                    <publicPackage>jakarta.transaction.*</publicPackage>
+                  </publicPackages>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+                <version>3.14.0</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -45,13 +44,21 @@
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-netbeans-api-annotations-common</artifactId>
-            <version>RELEASE230</version>
+            <version>RELEASE260</version>
         </dependency>
-        
+        <dependency>
+          <groupId>jakarta.persistence</groupId>
+          <artifactId>jakarta.persistence-api</artifactId>
+          <version>3.1.0</version>
+        </dependency>
+        <dependency>
+          <groupId>jakarta.transaction</groupId>
+          <artifactId>jakarta.transaction-api</artifactId>
+          <version>2.0.1</version>
+        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>21</maven.compiler.release>
-        <brandingToken>injurytime</brandingToken>
+        <maven.compiler.release>17</maven.compiler.release>
     </properties>
 </project>

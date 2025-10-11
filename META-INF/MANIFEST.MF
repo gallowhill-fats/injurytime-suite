@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Created-By: Maven JAR Plugin 3.4.2
+Build-Jdk-Spec: 21
+OpenIDE-Module-Localizing-Bundle: com/injurytime/lib/derby/Bundle.proper
+ ties
+OpenIDE-Module-Specification-Version: 1.0.0
+OpenIDE-Module-Implementation-Version: 1.0.0
+OpenIDE-Module-Build-Version: 202510080856
+OpenIDE-Module: com.injurytime.lib.derby
+OpenIDE-Module-Public-Packages: org.apache.derby.**, org.apache.derby.jd
+ bc.**, org.apache.derby.shared.**, com.injurytime.lib.derby.*
+OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1
+OpenIDE-Module-Display-Category: com.injurytime
+OpenIDE-Module-Name: lib.derby
+OpenIDE-Module-Short-Description: <undefined>
+OpenIDE-Module-Long-Description: <undefined>
+Class-Path: ext/com.injurytime.lib.derby/org-apache-derby/derby.jar ext/
+ com.injurytime.lib.derby/org-apache-derby/derbyshared.jar
+

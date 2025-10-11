@@ -25,22 +25,14 @@
       </configuration>
     </plugin>
 
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-jar-plugin</artifactId>
-      <version>3.4.2</version>
-      <configuration>
-        <archive>
-          <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
-        </archive>
-      </configuration>
-    </plugin>
   </plugins>
 </build>
-
-
-
     <dependencies>
+        <dependency>
+  <groupId>com.injurytime</groupId>
+  <artifactId>lib.derby</artifactId>
+  <version>${project.version}</version>
+</dependency>
         <dependency>
       <groupId>com.injurytime</groupId>
       <artifactId>storage.api</artifactId>
@@ -48,11 +40,10 @@
     </dependency>
     <!-- Jakarta Persistence API (explicit) -->
     <dependency>
-      <groupId>jakarta.persistence</groupId>
-      <artifactId>jakarta.persistence-api</artifactId>
-      <version>3.1.0</version>
+      <groupId>com.injurytime</groupId>
+      <artifactId>lib.jpa</artifactId>
+      <version>${project.version}</version>
     </dependency>
-
     <dependency>
       <groupId>com.injurytime</groupId>
       <artifactId>model.api</artifactId>
@@ -70,16 +61,10 @@
       <version>10.17.0</version>
     </dependency>
     <dependency>
-        <groupId>org.apache.derby</groupId>
-        <artifactId>derby</artifactId>
-        <version>10.17.1.0</version> <!-- use latest stable -->
-    </dependency>
-    <dependency>
       <groupId>org.netbeans.api</groupId>
       <artifactId>org-openide-util-lookup</artifactId>
       <version>${netbeans.release}</version>
     </dependency>
-    
     <dependency>
     <groupId>net.bytebuddy</groupId>
     <artifactId>byte-buddy</artifactId>
@@ -95,7 +80,6 @@
     <artifactId>hibernate-commons-annotations</artifactId>
     <version>6.0.6.Final</version>
   </dependency>
-
   <!-- ✅ JAXB API + runtime (needed by Hibernate on some paths) -->
   <dependency>
     <groupId>jakarta.xml.bind</groupId>
@@ -123,33 +107,30 @@
   <artifactId>jboss-logging</artifactId>
   <version>3.5.3.Final</version>
 </dependency>
-
 <!-- JTA API (some Hibernate paths reference it even in RESOURCE_LOCAL setups) -->
 <dependency>
   <groupId>jakarta.transaction</groupId>
   <artifactId>jakarta.transaction-api</artifactId>
   <version>2.0.1</version>
 </dependency>
-
 <!-- ClassMate (com.fasterxml.classmate.*) -->
 <dependency>
   <groupId>com.fasterxml</groupId>
   <artifactId>classmate</artifactId>
   <version>1.6.0</version>
 </dependency>
-
 <!-- Jakarta Inject annotations (@Named, etc.) -->
 <dependency>
   <groupId>jakarta.inject</groupId>
   <artifactId>jakarta.inject-api</artifactId>
   <version>2.0.1</version>
 </dependency>
-
 <dependency>
   <groupId>org.netbeans.api</groupId>
   <artifactId>org-netbeans-api-annotations-common</artifactId>
   <version>${netbeans.release}</version> <!-- e.g., RELEASE260 -->
 </dependency>
+
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

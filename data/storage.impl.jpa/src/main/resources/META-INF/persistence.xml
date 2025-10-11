@@ -14,16 +14,13 @@
     <class>com.injurytime.storage.jpa.entity.ClubDomainHint</class>
 
     <properties>
-      <!-- Derby embedded -->
-      <property name="jakarta.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
-      <property name="jakarta.persistence.jdbc.url" value="jdbc:derby:/path/to/your/db;create=true"/>
-      <property name="jakarta.persistence.jdbc.user" value="app"/>
-      <property name="jakarta.persistence.jdbc.password" value="app"/>
-
-      <!-- Hibernate -->
-      <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect"/>
-      <property name="hibernate.hbm2ddl.auto" value="validate"/>
-      <property name="hibernate.show_sql" value="false"/>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:derby://localhost:1527/c:/dbs/stramash;create=false"/>
+      <property name="jakarta.persistence.jdbc.user" value="clayton"/>
+      <property name="jakarta.persistence.jdbc.password" value="clayton"/>
+      <property name="jakarta.persistence.jdbc.driver" value="org.apache.derby.client.ClientAutoloadedDriver"/>
+      <!-- Optional but handy -->
+      <property name="hibernate.default_schema" value="CLAYTON"/>
+      <property name="hibernate.hbm2ddl.auto" value="none"/>
     </properties>
   </persistence-unit>
 </persistence>

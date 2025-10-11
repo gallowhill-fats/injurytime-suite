@@ -12,6 +12,7 @@
     <netbeans.release>RELEASE260</netbeans.release>
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
+    <brandingToken>injurytime</brandingToken>
   </properties>
 
 
@@ -20,6 +21,8 @@
     <module>base/app.branding</module>
     <module>base/app.core</module>
     <module>base/app.options</module>
+    <module>base/lib.derby</module>
+    <module>base/lib.jpa</module>
 
     <!-- Data -->
     <module>data/model.api</module>
@@ -55,6 +58,7 @@
     
     <!-- Tools -->
     <module>tools/squad.importer</module>
+    
   </modules>
 
   <build>

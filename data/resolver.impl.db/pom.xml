@@ -17,6 +17,10 @@
       <artifactId>nbm-maven-plugin</artifactId>
       <version>14.3</version>
       <extensions>true</extensions>
+      <configuration>
+        <cluster>extra</cluster>
+        <!-- resolver.impl.db is an internal impl; no public packages required -->
+      </configuration>
 
       <!-- TEMPORARY: unblock while you iterate; remove once green -->
       <!--<configuration>
@@ -31,17 +35,6 @@
           </goals>
         </execution>
       </executions>
-    </plugin>
-
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-jar-plugin</artifactId>
-      <version>3.4.2</version>
-      <configuration>
-        <archive>
-          <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
-        </archive>
-      </configuration>
     </plugin>
 
     <plugin>
@@ -90,23 +83,18 @@
         <version>${netbeans.release}</version>
     </dependency>
     <dependency>
-        <groupId>org.apache.derby</groupId>
-        <artifactId>derby</artifactId>
-        <version>10.17.1.0</version> <!-- use latest stable -->
+      <groupId>com.injurytime</groupId>
+      <artifactId>lib.derby</artifactId>
+      <version>${project.version}</version>
     </dependency>
 
   <!-- ✅ JPA types you import (EntityManager, Query, etc.) -->
   <dependency>
-    <groupId>jakarta.persistence</groupId>
-    <artifactId>jakarta.persistence-api</artifactId>
-    <version>3.1.0</version>
-  </dependency>
-  <!-- Often referenced even in RESOURCE_LOCAL setups -->
-  <dependency>
-    <groupId>jakarta.transaction</groupId>
-    <artifactId>jakarta.transaction-api</artifactId>
-    <version>2.0.1</version>
-  </dependency>
+      <groupId>com.injurytime</groupId>
+      <artifactId>lib.jpa</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+ 
 
   <!-- Only add Hibernate core if your code imports org.hibernate.* directly -->
   <!--

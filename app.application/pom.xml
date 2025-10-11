@@ -5,127 +5,24 @@
         <groupId>com.injurytime</groupId>
         <artifactId>injurytime-suite</artifactId>
         <version>1.0.0</version>
+        <relativePath>..</relativePath>
     </parent>
     <artifactId>app.application</artifactId>
     <packaging>nbm-application</packaging>
+
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.netbeans.utilities</groupId>
-                <artifactId>nbm-maven-plugin</artifactId>
-                <version>14.3</version>
-                <extensions>true</extensions>
-                    <configuration>
-                        <brandingToken>${branding.token}</brandingToken>
-                    <clusters>
-                        <cluster>platform</cluster>
-                        <cluster>ide</cluster>
-                        <cluster>java</cluster>
-                        <cluster>extra</cluster>
-                    </clusters>
-    <!-- Force-strip these modules from the final app -->
-    <excludedModules>
-      <!-- Core Maven stack -->
-      <excludedModule>org.netbeans.api.maven</excludedModule>
-      <excludedModule>org.netbeans.modules.maven</excludedModule>
-      <excludedModule>org.netbeans.modules.maven.kit</excludedModule>
-
-      <!-- Everything still in your tree -->
-      <excludedModule>org.netbeans.modules.hudson.maven</excludedModule>
-      <excludedModule>org.netbeans.modules.maven.checkstyle</excludedModule>
-      <excludedModule>org.netbeans.modules.maven.coverage</excludedModule>
-      <excludedModule>org.netbeans.modules.maven.embedder</excludedModule>
-      <excludedModule>org.netbeans.modules.maven.grammar</excludedModule>
-      <excludedModule>org.netbeans.modules.maven.graph</excludedModule>
-      <excludedModule>org.netbeans.modules.maven.hints</excludedModule>
-      <excludedModule>org.netbeans.modules.maven.indexer.ui</excludedModule>
-      <excludedModule>org.netbeans.modules.maven.indexer</excludedModule>
-      <excludedModule>org.netbeans.modules.maven.junit.ui</excludedModule>
-      <excludedModule>org.netbeans.modules.maven.junit</excludedModule>
-      <excludedModule>org.netbeans.modules.maven.model</excludedModule>
-      <excludedModule>org.netbeans.modules.maven.osgi</excludedModule>
-      <excludedModule>org.netbeans.modules.maven.persistence</excludedModule>
-      <excludedModule>org.netbeans.modules.maven.refactoring</excludedModule>
-      <excludedModule>org.netbeans.modules.maven.repository</excludedModule>
-      <excludedModule>org.netbeans.modules.maven.search</excludedModule>
-      <excludedModule>org.netbeans.modules.maven.spring</excludedModule>
-      <excludedModule>org.netbeans.modules.selenium2.maven</excludedModule>
-      <excludedModule>org.netbeans.modules.testng.maven</excludedModule>
-      
-      <!-- already have the long Maven list here; keep it -->
-  <!-- Ant / Java project -->
-  <excludedModule>org.netbeans.modules.project.ant</excludedModule>
-  <excludedModule>org.netbeans.modules.project.ant.ui</excludedModule>
-  <excludedModule>org.netbeans.modules.projectimport.eclipse.j2se</excludedModule>
-  <excludedModule>org.apache.tools.ant.module</excludedModule>
-  <excludedModule>org.netbeans.modules.java.project.ui</excludedModule>
-  <excludedModule>org.netbeans.modules.java.j2seproject</excludedModule>
-  <excludedModule>org.netbeans.modules.java.j2sedeploy</excludedModule>
-  <excludedModule>org.netbeans.modules.java.j2seplatform</excludedModule>
-  <excludedModule>org.netbeans.modules.java.openjdk.project</excludedModule>
-  <excludedModule>org.netbeans.modules.java.freeform</excludedModule>
-  <excludedModule>org.netbeans.modules.java.api.common</excludedModule>
-  <excludedModule>org.netbeans.modules.java.source.ant</excludedModule>
-  <excludedModule>org.netbeans.modules.java.j2seembedded</excludedModule>
-  <excludedModule>org.netbeans.modules.java.examples</excludedModule>
-  <excludedModule>org.netbeans.modules.javawebstart</excludedModule>
-  <excludedModule>org.netbeans.modules.java.kit</excludedModule>
-  <excludedModule>org.netbeans.modules.java.testrunner.ui</excludedModule>
-  <excludedModule>org.netbeans.modules.java.testrunner</excludedModule>
-  <excludedModule>org.netbeans.modules.java.lsp.server</excludedModule>
-
-  <!-- Jelly/Jemmy -->
-  <excludedModule>org.netbeans.modules.jellytools.ide</excludedModule>
-  <excludedModule>org.netbeans.modules.jellytools.java</excludedModule>
-  <excludedModule>org.netbeans.modules.jellytools.platform</excludedModule>
-  <excludedModule>org.netbeans.modules.nbjunit</excludedModule>
-  <excludedModule>org.netbeans.modules.jemmy</excludedModule>
-
-  <!-- Gradle -->
-  <excludedModule>org.netbeans.modules.gradle</excludedModule>
-  <excludedModule>org.netbeans.modules.libs.gradle</excludedModule>
-  <excludedModule>org.netbeans.modules.gradle.htmlui</excludedModule>
-  <excludedModule>org.netbeans.modules.gradle.java</excludedModule>
-  <excludedModule>org.netbeans.modules.gradle.java.coverage</excludedModule>
-  <excludedModule>org.netbeans.modules.gradle.spring</excludedModule>
-  <excludedModule>org.netbeans.modules.gradle.persistence</excludedModule>
-  <excludedModule>org.netbeans.modules.gradle.dependencies</excludedModule>
-  <excludedModule>org.netbeans.modules.gradle.test</excludedModule>
-  <excludedModule>org.netbeans.modules.gradle.kit</excludedModule>
-  
-
-  <!-- WebSvc / SAAS -->
-  <excludedModule>org.netbeans.modules.websvc.saas.api</excludedModule>
-  <excludedModule>org.netbeans.modules.websvc.saas.codegen</excludedModule>
-  <excludedModule>org.netbeans.modules.websvc.jaxws21api</excludedModule>
-  <excludedModule>org.netbeans.modules.websvc.jaxwsmodelapi</excludedModule>
-
-  <!-- Options Java -->
-  <excludedModule>org.netbeans.modules.options.java</excludedModule>
-
-  <!-- Node/Truffle (and PageInspector users you already handled earlier via ko4j) -->
-  <excludedModule>org.netbeans.modules.javascript.nodejs</excludedModule>
-  <excludedModule>org.netbeans.modules.debugger.jpda.trufflenode</excludedModule>
-  <excludedModule>org.netbeans.modules.debugger.jpda.truffle</excludedModule>
-  <excludedModule>org.netbeans.modules.debugger.jpda.ui</excludedModule>
-  <excludedModule>org.netbeans.modules.debugger.jpda.visual</excludedModule>
-  <excludedModule>org.netbeans.modules.debugger.jpda</excludedModule>
-  
-  <excludedModule>org.netbeans.modules.ko4j.debugging</excludedModule>
-  
-   <excludedModule>org.netbeans.modules.project.ant</excludedModule>
-
-  <excludedModule>org.netbeans.modules.projectimport.eclipse.core</excludedModule>
-  <excludedModule>org.netbeans.modules.xml.jaxb</excludedModule>
-  <excludedModule>org.netbeans.modules.java.project</excludedModule>
-  <excludedModule>org.netbeans.modules.junit.ant.ui</excludedModule>
-  <excludedModule>org.netbeans.modules.css.prep</excludedModule>
-  <excludedModule>org.netbeans.modules.ant.freeform</excludedModule>
-  <excludedModule>org.netbeans.modules.ant.hints</excludedModule>
-
-    </excludedModules>
-  </configuration>
-</plugin>
+              <groupId>org.apache.netbeans.utilities</groupId>
+              <artifactId>nbm-maven-plugin</artifactId>
+              <version>14.3</version>
+              <extensions>true</extensions>
+               <configuration>
+                 <brandingToken>${brandingToken}</brandingToken>
+                 <!-- optional: run with JDK 17 -->
+                 <!-- <jdkhome>C:\Program Files\Java\jdk-17</jdkhome> -->
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -155,329 +52,7 @@
             <version>${netbeans.release}</version>
             <type>pom</type>
         </dependency>
-        <dependency>
-  <groupId>org.netbeans.cluster</groupId>
-  <artifactId>ide</artifactId>
-  <version>${netbeans.release}</version>
-  <type>pom</type>
-  <exclusions>
-    <!-- UI testing -->
-    <exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-jellytools-ide</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-jellytools-java</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-jellytools-platform</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-nbjunit</artifactId></exclusion>
-
-    <!-- PageInspector chain -->
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-ko4j-debugging</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.html</groupId><artifactId>ko4j</artifactId></exclusion>
-
-    <!-- Ant project facade -->
-    <exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-project-ant</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-project-ant-ui</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-project-ant-compat8</artifactId></exclusion>
-
-    <!-- ALL NetBeans Maven tooling (the whole list from your tree) -->
-    <exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-api-maven</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-kit</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-hudson-maven</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-checkstyle</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-coverage</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-embedder</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-grammar</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-graph</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-hints</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-indexer-ui</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-indexer</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-junit-ui</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-junit</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-model</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-osgi</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-persistence</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-refactoring</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-repository</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-search</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-spring</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-selenium2-maven</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-testng-maven</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-testng</artifactId></exclusion>
-
-    <!-- Maven whole stack (seen in your trees/errors) -->
-    <exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-api-maven</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-kit</artifactId></exclusion>
-    
-    
-    <exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-jemmy</artifactId></exclusion>
-<!-- Maven referrer seen in the error -->
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-search</artifactId></exclusion>
-
-<!-- Maven referrers (so they don't pull org.netbeans.modules.maven) -->
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-selenium2-java</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-hudson-maven</artifactId></exclusion>
-<!-- KO4J debugger path -->
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-ko4j-debugging</artifactId></exclusion>
-
-
-<!-- ide:clsuter modules.java -->
-<exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-jellytools-java</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-search</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-projectimport-eclipse-core</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-xml-jaxb</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-debug</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-nativeimage-debugger</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-java-project</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-disco</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-metrics</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-editor</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-editor-base</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-editor-htmlui</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-java-editor-lib</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-hints</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-hints-ui</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-hints-declarative</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-java-hints-declarative-test</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-java-hints-test</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-hints-legacy-spi</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-source-queries</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-javadoc</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-junit-ant</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-junit-ant-ui</artifactId></exclusion>
-
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-css-prep</artifactId></exclusion>
-
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-projectimport-eclipse-core</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-xml-jaxb</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-xml-tools-java</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-junit-ant-ui</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-junit-ui</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-css-prep</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-ant-browsetask</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-ant-debugger</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-ant-freeform</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-ant-grammar</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-ant-hints</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-ant-kit</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-hudson-ant</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-editor-htmlui</artifactId></exclusion>
-
-<exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-i18n</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-i18n-form</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-source-queriesimpl</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-beans</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-j2ee-persistence</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-j2ee-persistence-kit</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-j2ee-jpa-refactoring</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-j2ee-jpa-verification</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-j2ee-core-utilities</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-mx-project</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-testrunner</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-testrunner-ui</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-testrunner-ant</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-java-lsp-server</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-form</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-form-nb</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-form-refactoring</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-debugger-jpda</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-debugger-jpda-ant</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-debugger-jpda-projects</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-debugger-jpda-projectsui</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-debugger-jpda-js</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-debugger-jpda-truffle</artifactId></exclusion>
-
-<exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-spi-java-hints</artifactId></exclusion>
-
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-spring-beans</artifactId></exclusion>
-
-<exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-websvc-saas-codegen</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-websvc-saas-codegen-java</artifactId></exclusion>
-
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-form-kit</artifactId></exclusion>
-
-
-
-  </exclusions>
-</dependency>
-    
-      <dependency>
-  <groupId>org.netbeans.cluster</groupId>
-  <artifactId>java</artifactId>
-  <version>${netbeans.release}</version>
-  <type>pom</type>
-  <exclusions>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-kit</artifactId></exclusion>
-
-    <!-- java cluster: Java project / Ant (these reference project.ant.ui, apache.tools.ant.module, etc.) -->
-    <exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-java-project-ui</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-j2seproject</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-j2sedeploy</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-java-j2seplatform</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-openjdk-project</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-freeform</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-api-common</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-source-ant</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-j2seembedded</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-examples</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-debug</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-nativeimage-debugger</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-javawebstart</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-mx-project</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-editor</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-editor-base</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-editor-htmlui</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-java-editor-lib</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-hints</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-hints-ui</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-hints-declarative</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-hints-legacy-spi</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-java-hints-declarative-test</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-java-hints-test</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-java-lsp-server</artifactId></exclusion>
-    
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-javadoc</artifactId></exclusion>
-    
-
-
-    <!-- JShell & friends (these were in earlier errors and are referenced again) -->
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-jshell-support</artifactId></exclusion>
-
-    <!-- Gradle family (exact codenamebases in your error) -->
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-gradle</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-libs-gradle</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-gradle-htmlui</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-gradle-java</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-gradle-java-coverage</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-gradle-persistence</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-gradle-spring</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-gradle-dependencies</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-gradle-test</artifactId></exclusion>
-
-    <!-- Web services / SAAS / JAX-WS -->
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-websvc-saas-api</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-websvc-saas-codegen</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-websvc-jaxws21api</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-websvc-jaxwsmodelapi</artifactId></exclusion>
-
-    <!-- Options: Java -->
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-options-java</artifactId></exclusion>
-
-    <!-- Node/Truffle (PageInspector chains can route via these) -->
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-javascript-nodejs</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-debugger-jpda</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-debugger-jpda-ant</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-debugger-jpda-js</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-debugger-jpda-jsui</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-debugger-jpda-trufflenode</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-debugger-jpda-truffle</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-debugger-jpda-visual</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-debugger-jpda-ui</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-debugger-jpda-kit</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-debugger-jpda-projects</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-debugger-jpda-projectsui</artifactId></exclusion>
-    
-    <!-- Maven (belt-and-braces in java too) -->
-    <exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-api-maven</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-kit</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-testng-maven</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-testng</artifactId></exclusion>
-    
-    <!-- referrers listed in your error -->
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-j2semodule</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-java-project-ui</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-testrunner</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-testrunner-ui</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-testrunner-ant</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-junit</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-junit-ui</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-junit-ant</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-junit-ant-ui</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-testng-ant</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-testng-ui</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-file-launcher</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-refactoring-java</artifactId></exclusion>
-
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-gradle-kit</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-j2seplatform</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-java-project-ui</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-projectimport-eclipse-j2se</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-projectimport-eclipse-core</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-source-queries</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-source-queriesimpl</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-j2seprofiles</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-debug</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-disco</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-java-metrics</artifactId></exclusion>
-   
-    <!-- Maven stack (repeat under java, even if already under ide) -->
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-checkstyle</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-coverage</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-embedder</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-grammar</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-graph</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-hints</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-indexer-ui</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-indexer</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-junit-ui</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-junit</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-selenium2-maven</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-selenium2-java</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-hudson-maven</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-model</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-osgi</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-persistence</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-refactoring</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-repository</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-search</artifactId></exclusion>
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-maven-spring</artifactId></exclusion>
-
-    <exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-nashorn-execution</artifactId></exclusion>
-
-<!-- Ant facade that triggers project.ant -->
-<exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-project-ant-ui</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-project-ant</artifactId></exclusion>
-
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-ko4j-debugging</artifactId></exclusion>
-
-<exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-jellytools-java</artifactId></exclusion>
-
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-projectimport-eclipse-core</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-xml-jaxb</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-xml-tools-java</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-java-project</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-css-prep</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-ant-browsetask</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-ant-debugger</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-ant-freeform</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-ant-grammar</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-ant-hints</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-ant-kit</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-hudson-ant</artifactId></exclusion>
-
-<exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-i18n</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-i18n-form</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-beans</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-j2ee-persistence</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-j2ee-persistence-kit</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-j2ee-jpa-refactoring</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-j2ee-jpa-verification</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-j2ee-core-utilities</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-form</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-form-nb</artifactId></exclusion>
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-form-refactoring</artifactId></exclusion>
-
-<exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-spi-java-hints</artifactId></exclusion>
-
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-spring-beans</artifactId></exclusion>
-
-<exclusion><groupId>org.netbeans.modules</groupId><artifactId>org-netbeans-modules-form-kit</artifactId></exclusion>
-
-<exclusion><groupId>org.netbeans.api</groupId><artifactId>org-netbeans-modules-websvc-saas-codegen-java</artifactId></exclusion>
-
-  </exclusions>
-</dependency>
-    
-  
+        
     <!-- All injurytime modules -->
     <dependency>
       <groupId>com.injurytime</groupId>
@@ -651,6 +226,26 @@
       <type>nbm</type>
     </dependency>
     
+    <dependency>
+    <groupId>com.injurytime</groupId>
+    <artifactId>app.branding</artifactId>
+    <version>${project.version}</version>
+  </dependency>
+  
+  <dependency>
+    <groupId>com.injurytime</groupId>
+    <artifactId>lib.derby</artifactId>
+    <version>${project.version}</version>
+    <type>nbm</type>
+  </dependency>
+  
+  <dependency>
+          <groupId>com.injurytime</groupId>
+          <artifactId>lib.jpa</artifactId>
+          <version>${project.version}</version>
+          <type>nbm</type>
+        </dependency>
+    
     </dependencies>
     
     
@@ -658,6 +253,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>21</maven.compiler.release>
         <netbeans.release>RELEASE260</netbeans.release>
-        <branding.token>injurytime</branding.token> 
+<!--        <brandingToken>${brandingToken}</brandingToken>-->
     </properties>
 </project>
