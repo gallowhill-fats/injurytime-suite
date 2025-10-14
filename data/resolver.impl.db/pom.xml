@@ -87,13 +87,15 @@
       <artifactId>lib.derby</artifactId>
       <version>${project.version}</version>
     </dependency>
-
-  <!-- ✅ JPA types you import (EntityManager, Query, etc.) -->
-  <dependency>
+    
+    <dependency>
       <groupId>com.injurytime</groupId>
-      <artifactId>lib.jpa</artifactId>
+      <artifactId>libs.jakarta.persistence</artifactId>
       <version>${project.version}</version>
     </dependency>
+
+  <!-- ✅ JPA types you import (EntityManager, Query, etc.) -->
+  
  
 
   <!-- Only add Hibernate core if your code imports org.hibernate.* directly -->

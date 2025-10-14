@@ -5,26 +5,21 @@
         <groupId>com.injurytime</groupId>
         <artifactId>injurytime-suite</artifactId>
         <version>1.0.0</version>
-        <relativePath>../../pom.xml</relativePath>
     </parent>
-    <artifactId>storage.api</artifactId>
+    <artifactId>api.progress</artifactId>
     <packaging>nbm</packaging>
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.netbeans.utilities</groupId>
                 <artifactId>nbm-maven-plugin</artifactId>
+                <version>14.3</version>
                 <extensions>true</extensions>
-                <configuration>
-                    <publicPackages>
-                        <publicPackage>com.injurytime.storage.api</publicPackage>
-                    </publicPackages>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+                <version>3.14.0</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -44,19 +39,9 @@
             <artifactId>org-netbeans-api-annotations-common</artifactId>
             <version>RELEASE260</version>
         </dependency>
-        <dependency>
-            <groupId>com.injurytime</groupId>
-            <artifactId>model.api</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-  <groupId>com.injurytime</groupId>
-  <artifactId>libs.jakarta.persistence</artifactId>
-  <version>${project.version}</version>
-</dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>21</maven.compiler.release>
+        <maven.compiler.release>17</maven.compiler.release>
     </properties>
 </project>

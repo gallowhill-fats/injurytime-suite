@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.injurytime</groupId>
+    <artifactId>injurytime-suite</artifactId>
+    <version>1.0.0</version>
+    <relativePath>../../pom.xml</relativePath>
+  </parent>
+
+  <artifactId>libs.jakarta.persistence</artifactId>
+  <packaging>nbm</packaging>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.netbeans.utilities</groupId>
+        <artifactId>nbm-maven-plugin</artifactId>
+        <version>14.3</version>
+        <extensions>true</extensions>
+        <configuration>
+          <codeNameBase>com.injurytime.libs.jakarta.persistence</codeNameBase>
+          <cluster>extra</cluster>
+          <!-- Export Jakarta JPA packages so other NB modules can reference them -->
+          <publicPackages>
+            <publicPackage>jakarta.persistence</publicPackage>
+            <publicPackage>jakarta.persistence.*</publicPackage>
+          </publicPackages>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <!-- Bundle the API jar inside this module -->
+  <dependencies>
+    <dependency>
+      <groupId>jakarta.persistence</groupId>
+      <artifactId>jakarta.persistence-api</artifactId>
+      <version>3.1.0</version>
+    </dependency>
+  </dependencies>
+
+  <properties>
+    <maven.compiler.release>21</maven.compiler.release>
+  </properties>
+</project>

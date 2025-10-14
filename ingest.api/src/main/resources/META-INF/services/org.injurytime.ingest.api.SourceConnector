@@ -1,0 +1,2 @@
+org.injurytime.ingest.connectors.GmailConnector
+org.injurytime.ingest.connectors.RssConnector

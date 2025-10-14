@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+OpenIDE-Module-Localizing-Bundle: com/injurytime/squad/importer/pg/Bundle.properties
+

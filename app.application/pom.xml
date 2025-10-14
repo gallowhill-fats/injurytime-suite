@@ -238,13 +238,13 @@
     <version>${project.version}</version>
     <type>nbm</type>
   </dependency>
-  
-  <dependency>
-          <groupId>com.injurytime</groupId>
-          <artifactId>lib.jpa</artifactId>
-          <version>${project.version}</version>
-          <type>nbm</type>
-        </dependency>
+        
+        <dependency>
+    <groupId>com.injurytime</groupId>
+    <artifactId>libs.jakarta.persistence</artifactId>
+    <version>${project.version}</version>
+    <type>nbm-file</type>
+  </dependency>
     
     </dependencies>
     

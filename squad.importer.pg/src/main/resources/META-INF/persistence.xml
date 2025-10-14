@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.1">
+  <persistence-unit name="injurytime-pg" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+    <!-- If this module declares entities, list packages/classes or rely on auto-scan -->
+    <!-- <class>org.injurytime.squad.entity.Player</class> -->
+    <class>com.injurytime.storage.jpa.entity.Club</class>
+    <class>com.injurytime.storage.jpa.entity.ClubAlias</class>
+    <class>com.injurytime.storage.jpa.entity.ClubDomainHint</class>
+    <class>com.injurytime.storage.jpa.entity.LeagueSeason</class>
+    <class>com.injurytime.storage.jpa.entity.LeagueSeasonId</class>
+    <class>com.injurytime.storage.jpa.entity.Player</class>
+    <class>com.injurytime.storage.jpa.entity.PlayerAlias</class>
+    <class>com.injurytime.storage.jpa.entity.ResolutionOverride</class>
+    <class>com.injurytime.storage.jpa.entity.ResolutionOverrideId</class>
+    <class>com.injurytime.storage.jpa.entity.SquadRoster</class>
+    <class>com.injurytime.storage.jpa.entity.SquadRosterId</class>
+    <properties>
+      <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:55432/injurytime"/>
+      <property name="jakarta.persistence.jdbc.user" value="injurytime_app"/>
+      <property name="jakarta.persistence.jdbc.password" value="1w2tthm!"/>
+
+      <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+      <property name="hibernate.hbm2ddl.auto" value="none"/> <!-- Flyway owns schema -->
+      <property name="hibernate.show_sql" value="false"/>
+      <property name="hibernate.format_sql" value="true"/>
+    </properties>
+  </persistence-unit>
+</persistence>
