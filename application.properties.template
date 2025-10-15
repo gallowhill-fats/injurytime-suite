@@ -1,0 +1,4 @@
+# Copy this file to: injurytime.local.properties (DO NOT COMMIT THAT COPY)
+PG_URL=jdbc:postgresql://localhost:5432/injurytime
+PG_USER=injurytime_app
+PG_PASS=__set_this_locally__
