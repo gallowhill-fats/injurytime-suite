@@ -39,7 +39,7 @@ public class SquadRoster {
 
   // If this is an INT in DB, change type to Integer and keep the @Column as-is.
   @Column(name = "LOAN_FROM_CLUB")
-  private String loanFromClub;
+  private Integer loanFromClub;
 
   @Column(name = "JOIN_DATE")
   private LocalDate joinDate;
@@ -72,8 +72,8 @@ public class SquadRoster {
   public Boolean getOnLoan() { return onLoan; }
   public void setOnLoan(Boolean onLoan) { this.onLoan = onLoan; }
 
-  public String getLoanFromClub() { return loanFromClub; }
-  public void setLoanFromClub(String loanFromClub) { this.loanFromClub = loanFromClub; }
+  public Integer getLoanFromClub() { return loanFromClub; }
+  public void setLoanFromClub(Integer loanFromClub) { this.loanFromClub = loanFromClub; }
 
   public LocalDate getJoinDate() { return joinDate; }
   public void setJoinDate(LocalDate joinDate) { this.joinDate = joinDate; }

@@ -1,42 +1,94 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-// Club.java
 package com.injurytime.storage.jpa.entity;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "CLUB")
-@Access(AccessType.FIELD)
+@Table(name = "club")
 public class Club {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "CLUB_ID")
-  private Integer id; // DB surrogate PK
+  private Integer id;                      // surrogate PK
 
   @Column(name = "API_CLUB_ID", nullable = false, unique = true)
-  private Integer apiClubId; // canonical external ID
+  private Integer apiClubId;               // external ID
 
   @Column(name = "CLUB_NAME", nullable = false, unique = true, length = 100)
   private String clubName;
 
-  @Column(name = "CLUB_ABBR", nullable = false, unique = true, length = 4)
+  @Column(name = "CLUB_ABBR", nullable = false, unique = true, length = 3) // 3-letter code; use 4 if you prefer
   private String clubAbbr;
 
-  public Club() {}
+  @Column(name = "COUNTRY_CODE", length = 3)
+  private String countryCode;
 
-  public Integer getId() { return id; }
+  @Column(name = "LOGO_URL")
+  private String logoUrl;
 
-  public Integer getApiClubId() { return apiClubId; }
-  public void setApiClubId(Integer v) { this.apiClubId = v; }
+  @Column(name = "CREATED_AT", insertable = false, updatable = false)
+  private java.time.Instant createdAt;
 
-  public String getClubName() { return clubName; }
-  public void setClubName(String v) { this.clubName = v; }
+  @Column(name = "UPDATED_AT", insertable = false, updatable = false)
+  private java.time.Instant updatedAt;
 
-  public String getClubAbbr() { return clubAbbr; }
-  public void setClubAbbr(String v) { this.clubAbbr = v; }
+ 
+    public Club()
+    {
+    }
+
+    public Integer getId()
+    {
+        return id;
+    }
+
+    public Integer getApiClubId()
+    {
+        return apiClubId;
+    }
+
+    public void setApiClubId(Integer v)
+    {
+        this.apiClubId = v;
+    }
+
+    public String getClubName()
+    {
+        return clubName;
+    }
+
+    public void setClubName(String v)
+    {
+        this.clubName = v;
+    }
+
+    public String getClubAbbr()
+    {
+        return clubAbbr;
+    }
+
+    public void setClubAbbr(String v)
+    {
+        this.clubAbbr = v;
+    }
+
+    public String getCountryCode()
+    {
+        return countryCode;
+    }
+
+    public void setCountryCode(String v)
+    {
+        this.countryCode = v;
+    }
+
+    public String getLogoUrl()
+    {
+        return logoUrl;
+    }
+
+    public void setLogoUrl(String v)
+    {
+        this.logoUrl = v;
+    }
 }
-
-

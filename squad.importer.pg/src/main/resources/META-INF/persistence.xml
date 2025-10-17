@@ -18,7 +18,7 @@
     <class>com.injurytime.storage.jpa.entity.SquadRosterId</class>
     <properties>
       <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-      <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:55432/injurytime"/>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/injurytime"/>
       <property name="jakarta.persistence.jdbc.user" value="injurytime_app"/>
       <property name="jakarta.persistence.jdbc.password" value="1w2tthm!"/>
 

@@ -25,12 +25,13 @@ import org.openide.util.Lookup;
 import org.openide.util.NbBundle.Messages;
 import org.openide.util.RequestProcessor;
 
+
 import com.injurytime.storage.api.JpaAccess;
 
-@ActionID(category = "Tools", id = "com.injurytime.tools.squad.ImportSquadJsonAction")
-@ActionRegistration(displayName = "#CTL_ImportSquadJsonAction", asynchronous = true)
-@ActionReference(path = "Menu/Tools", position = 1300)
-@Messages("CTL_ImportSquadJsonAction=Import Squad JSON…")
+@ActionID(category = "Tools", id = "com.injurytime.pg.tools.squad.ImportSquadJsonActionPg")
+@ActionRegistration(displayName = "#CTL_ImportSquadJsonActionPg", asynchronous = true)
+@ActionReference(path = "Menu/Tools", position = 1400)
+@Messages("CTL_ImportSquadJsonActionPg=Import Squad JSON Pg…")
 public final class ImportSquadJsonActionPg implements ActionListener {
 
     private static final RequestProcessor RP
@@ -83,7 +84,7 @@ public final class ImportSquadJsonActionPg implements ActionListener {
         gc.gridx = 1;
         form.add(fileRow, gc);
 
-        var dd = new DialogDescriptor(form, Bundle.CTL_ImportSquadJsonAction());
+        var dd = new DialogDescriptor(form, Bundle.CTL_ImportSquadJsonActionPg());
         Object res = DialogDisplayer.getDefault().notify(dd);
         if (res != NotifyDescriptor.OK_OPTION)
         {
@@ -112,6 +113,8 @@ public final class ImportSquadJsonActionPg implements ActionListener {
             warn("Please choose a JSON file.");
             return;
         }
+        
+        var jpa = new PgJpaAccess();
 
         // Off-EDT work
         RP.post(() ->
@@ -119,14 +122,16 @@ public final class ImportSquadJsonActionPg implements ActionListener {
             try
             {
                 // Lookup JPA access and run importer
-                JpaAccess jpa = Lookup.getDefault().lookup(JpaAccess.class);
-                if (jpa == null)
-                {
-                    warn("JPA is not available (JpaAccess service not found).");
-                    return;
-                }
+//                JpaAccess jpa = Lookup.getDefault().lookup(JpaAccess.class);
+//                if (jpa == null)
+//                {
+//                    warn("JPA is not available (JpaAccess service not found).");
+//                    return;
+//                }
+                
+                
 
-                var importer = new SquadJsonImporter(jpa);
+                var importer = new com.injurytime.pg.tools.squad.SquadJsonImporter(jpa);
                 var result = importer.importFile(json, seasonId, clubApiId);
 
                 String msg = String.format(
