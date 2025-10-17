@@ -29,3 +29,9 @@ derby.log
 **/seg0/
 **/log/
 **/tmp/
+
+# local secrets
+.env.local
+injurytime.local.properties
+injurytime.secrets.properties
+

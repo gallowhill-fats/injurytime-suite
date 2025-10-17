@@ -60,7 +60,7 @@ public ImportResult importFile(Path jsonFile, String seasonId) throws IOExceptio
 
       // Optional fields – wire up if you start getting them from the JSON
       Boolean      onLoan       = null;
-      String      loanFromClub = null;   // API club id of parent if on loan
+      Integer      loanFromClub = null;   // API club id of parent if on loan
       java.time.LocalDate      joinDate   = null;
       java.time.LocalDate      leaveDate  = null;
       java.time.LocalDateTime  updatedAt  = java.time.LocalDateTime.now();

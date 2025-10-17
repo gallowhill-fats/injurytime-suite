@@ -227,6 +227,20 @@
     </dependency>
     
     <dependency>
+      <groupId>com.injurytime</groupId>
+      <artifactId>libs.hibernate.core</artifactId>
+      <version>${project.version}</version>
+      <type>nbm-file</type>
+    </dependency>
+    
+    <dependency>
+  <groupId>com.injurytime</groupId>
+  <artifactId>squad.importer.pg</artifactId>
+  <version>${project.version}</version>
+  <type>nbm-file</type>
+</dependency>
+    
+    <dependency>
     <groupId>com.injurytime</groupId>
     <artifactId>app.branding</artifactId>
     <version>${project.version}</version>

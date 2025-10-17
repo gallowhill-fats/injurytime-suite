@@ -60,6 +60,7 @@
     <module>ingest.api</module>
     <module>squad.importer.pg</module>
     <module>libs.jakarta.persistence</module>
+    <module>libs.hibernate.core</module>
   </modules>
 
   <build>
