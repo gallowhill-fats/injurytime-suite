@@ -1,0 +1,31 @@
+<build>
+  <plugins>
+    <plugin>
+      <groupId>com.mycila</groupId>
+      <artifactId>license-maven-plugin</artifactId>
+      <version>4.5</version>
+      <configuration>
+        <header>LICENSE_HEADER.txt</header>
+        <includes>
+          <include>**/*.java</include>
+          <include>**/*.sql</include>
+          <include>**/*.xml</include>
+          <include>**/*.properties</include>
+        </includes>
+        <mapping>
+          <java>JAVADOC_STYLE</java>
+          <sql>DOUBLETILDE_STYLE</sql>
+          <xml>XML_STYLE</xml>
+          <properties>SCRIPT_STYLE</properties>
+        </mapping>
+      </configuration>
+      <executions>
+        <execution>
+          <goals>
+            <goal>format</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+  </plugins>
+</build>
