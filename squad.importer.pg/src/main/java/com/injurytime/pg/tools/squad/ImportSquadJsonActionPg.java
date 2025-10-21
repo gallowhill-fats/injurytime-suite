@@ -51,6 +51,7 @@ public final class ImportSquadJsonActionPg implements ActionListener {
         browse.addActionListener(ae ->
         {
             var fc = new JFileChooser();
+            fc.setCurrentDirectory(new File("D:\\sdata"));
             fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
             if (fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
             {

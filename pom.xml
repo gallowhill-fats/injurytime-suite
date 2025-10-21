@@ -21,7 +21,6 @@
     <module>base/app.branding</module>
     <module>base/app.core</module>
     <module>base/app.options</module>
-    <module>base/lib.derby</module>
 
     <!-- Data -->
     <module>data/model.api</module>
@@ -56,11 +55,17 @@
     <module>app.application</module>
     
     <!-- Tools -->
-    <module>tools/squad.importer</module>
     <module>ingest.api</module>
     <module>squad.importer.pg</module>
     <module>libs.jakarta.persistence</module>
     <module>libs.hibernate.core</module>
+    <module>gmail.ingest</module>
+    <module>fixtures.importer.pg</module>
+    <module>fixtures.events.pg</module>
+    <module>libs.postgresql</module>
+    <module>analysis.api</module>
+    <module>analysis.impl.db</module>
+    <module>analysis.ui</module>
   </modules>
 
   <build>

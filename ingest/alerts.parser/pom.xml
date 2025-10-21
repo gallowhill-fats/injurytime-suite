@@ -37,8 +37,51 @@
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-netbeans-api-annotations-common</artifactId>
-            <version>RELEASE230</version>
+            <version>${netbeans.release}</version>
         </dependency>
+        <dependency>
+          <groupId>org.netbeans.api</groupId>
+          <artifactId>org-openide-dialogs</artifactId>
+          <version>${netbeans.release}</version>
+        </dependency>
+        <dependency>
+          <groupId>org.netbeans.api</groupId>
+          <artifactId>org-openide-util</artifactId>
+          <version>${netbeans.release}</version>
+        </dependency>
+        <dependency>
+      <groupId>org.netbeans.api</groupId>
+      <artifactId>org-netbeans-api-progress</artifactId>
+      <version>${netbeans.release}</version>
+      <type>jar</type>
+    </dependency>
+        <dependency>
+          <groupId>com.injurytime</groupId>
+          <artifactId>libs.jakarta.persistence</artifactId>
+          <version>${project.version}</version>
+        </dependency>
+        <dependency>
+          <groupId>com.injurytime</groupId>
+          <artifactId>libs.hibernate.core</artifactId>
+          <version>${project.version}</version>
+        </dependency>
+        <dependency>
+          <groupId>com.injurytime</groupId>
+          <artifactId>storage.api</artifactId>
+          <version>${project.version}</version>
+        </dependency>
+        <dependency>
+          <groupId>org.jsoup</groupId>
+          <artifactId>jsoup</artifactId>
+          <version>1.17.2</version>
+        </dependency>
+        <dependency>
+          <groupId>org.apache.commons</groupId>
+          <artifactId>commons-text</artifactId>
+          <version>1.12.0</version>
+        </dependency>
+        
+        
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

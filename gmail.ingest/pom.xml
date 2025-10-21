@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.injurytime</groupId>
+    <artifactId>injurytime-suite</artifactId>
+    <version>1.0.0</version>
+    <relativePath>../../pom.xml</relativePath>
+  </parent>
+  <artifactId>gmail.ingest</artifactId>
+  <packaging>nbm</packaging>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.netbeans.utilities</groupId>
+        <artifactId>nbm-maven-plugin</artifactId>
+        <version>14.3</version>
+        <extensions>true</extensions>
+        <configuration>
+          <publicPackages>
+            <publicPackage>com.injurytime.gmail.ingest</publicPackage>
+          </publicPackages>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <!-- NetBeans APIs -->
+    <dependency>
+      <groupId>org.netbeans.api</groupId>
+      <artifactId>org-openide-awt</artifactId>
+      <version>${netbeans.release}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.netbeans.api</groupId>
+      <artifactId>org-openide-util</artifactId>
+      <version>${netbeans.release}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.netbeans.api</groupId>
+      <artifactId>org-openide-util-lookup</artifactId>
+      <version>${netbeans.release}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.netbeans.api</groupId>
+      <artifactId>org-netbeans-api-progress</artifactId>
+      <version>${netbeans.release}</version>
+      <type>jar</type>
+    </dependency>
+
+    <!-- InjuryTime storage access -->
+    <dependency>
+      <groupId>com.injurytime</groupId>
+      <artifactId>storage.api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.injurytime</groupId>
+      <artifactId>storage.impl.jpa</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <!-- Google Gmail API (Java) -->
+    <dependency>
+      <groupId>com.google.api-client</groupId>
+      <artifactId>google-api-client</artifactId>
+      <version>2.5.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.oauth-client</groupId>
+      <artifactId>google-oauth-client-jetty</artifactId>
+      <version>1.35.0</version>
+    </dependency>
+   <dependency>
+    <groupId>com.google.apis</groupId>
+    <artifactId>google-api-services-gmail</artifactId>
+    <version>v1-rev20250630-2.0.0</version>
+</dependency>
+
+    <!-- Jackson (if you want to save raw JSON snippets, optional) -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.15.2</version>
+    </dependency>
+
+    <!-- Some Google artifacts annotate with Checker; keep this to avoid missing types -->
+    <dependency>
+      <groupId>org.checkerframework</groupId>
+      <artifactId>checker-qual</artifactId>
+      <version>3.47.0</version>
+      <scope>provided</scope>
+    </dependency>
+   <dependency>
+    <groupId>io.grpc</groupId>
+    <artifactId>grpc-context</artifactId>
+    <version>1.76.0</version>
+</dependency>
+<dependency>
+  <groupId>com.google.guava</groupId>
+  <artifactId>guava</artifactId>
+  <version>33.2.1-jre</version>
+</dependency>
+<dependency>
+  <groupId>com.google.code.findbugs</groupId>
+  <artifactId>jsr305</artifactId>
+  <version>3.0.2</version>
+</dependency>
+<dependency>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>animal-sniffer-annotations</artifactId>
+  <version>1.24</version>
+</dependency>
+<dependency>
+  <groupId>com.google.errorprone</groupId>
+  <artifactId>error_prone_annotations</artifactId>
+  <version>2.27.1</version>
+</dependency>
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.13.2</version>
+</dependency>
+<!-- ✅ gRPC bits the verifier needs to see -->
+<dependency>
+  <groupId>io.grpc</groupId>
+  <artifactId>grpc-api</artifactId>
+  <version>1.65.1</version>
+</dependency>
+<dependency>
+  <groupId>com.injurytime</groupId>
+  <artifactId>libs.jakarta.persistence</artifactId>
+  <version>${project.version}</version>
+</dependency>
+    <dependency>
+      <groupId>org.netbeans.api</groupId>
+      <artifactId>org-openide-dialogs</artifactId>
+      <version>${netbeans.release}</version>
+      <type>jar</type>
+    </dependency>
+    <!-- JSR-330 @Inject (because you use jakarta.inject.Inject) -->
+<dependency>
+  <groupId>jakarta.inject</groupId>
+  <artifactId>jakarta.inject-api</artifactId>
+  <version>2.0.1</version>
+</dependency>
+
+<!-- Hibernate wrapper module so the provider is on the NB module path at runtime -->
+<dependency>
+  <groupId>com.injurytime</groupId>
+  <artifactId>libs.hibernate.core</artifactId>
+  <version>${project.version}</version>
+</dependency>
+  </dependencies>
+</project>

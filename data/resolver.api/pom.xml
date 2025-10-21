@@ -51,7 +51,7 @@
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-netbeans-api-annotations-common</artifactId>
-            <version>RELEASE260</version>
+            <version>${netbeans.release}</version>
         </dependency>
         <dependency>
             <groupId>com.injurytime</groupId>
@@ -62,6 +62,5 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>21</maven.compiler.release>
-        <netbeans.release>RELEASE260</netbeans.release>  <!-- or RELEASE250 if you stay on NB 25 -->
     </properties>
 </project>

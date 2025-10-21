@@ -111,11 +111,18 @@
     </dependency>
 
     <!-- JDBC driver needed at runtime for PG (nbm plugin will bundle it for this module) -->
-    <dependency>
+<!--    <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
       <version>42.7.4</version>
+    </dependency>-->
+    <dependency>
+      <groupId>com.injurytime</groupId>
+      <artifactId>libs.postgresql</artifactId>
+      <version>${project.version}</version>
     </dependency>
+    
+    
 
     <!-- Annotations used by transitive libs -->
     <dependency>
@@ -130,6 +137,18 @@
   <artifactId>libs.hibernate.core</artifactId>
   <version>${project.version}</version>
 </dependency>
+    <dependency>
+      <groupId>org.netbeans.api</groupId>
+      <artifactId>org-openide-filesystems-nb</artifactId>
+      <version>${netbeans.release}</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.netbeans.api</groupId>
+      <artifactId>org-openide-filesystems</artifactId>
+      <version>${netbeans.release}</version>
+      <type>jar</type>
+    </dependency>
   </dependencies>
 
   <properties>

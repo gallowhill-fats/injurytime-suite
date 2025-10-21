@@ -42,7 +42,7 @@
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-netbeans-api-annotations-common</artifactId>
-            <version>RELEASE260</version>
+            <version>${netbeans.release}</version>
         </dependency>
         <dependency>
             <groupId>com.injurytime</groupId>

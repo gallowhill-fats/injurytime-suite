@@ -10,7 +10,12 @@ import java.io.File;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
+import java.util.prefs.Preferences;
 import java.util.stream.Collectors;
+import org.openide.filesystems.FileChooserBuilder;
+import org.openide.filesystems.FileUtil;
+import org.openide.util.NbPreferences;
 
 public final class SquadImportPanel extends JPanel {
   private final JTextField seasonField = new JTextField(12);
@@ -39,23 +44,39 @@ public final class SquadImportPanel extends JPanel {
   }
 
   private void openChooser() {
-    JFileChooser ch = new JFileChooser();
-    ch.setDialogTitle("Select Squad JSON files");
-    ch.setMultiSelectionEnabled(true);
-    ch.setFileFilter(new javax.swing.filechooser.FileNameExtensionFilter("JSON files", "json"));
-    int res = ch.showOpenDialog(this);
-    if (res == JFileChooser.APPROVE_OPTION) {
-      File[] files = ch.getSelectedFiles();
-      selectedFiles = files == null ? List.of() : List.of(files);
-      if (selectedFiles.isEmpty()) {
-        filesField.setText("");
-      } else if (selectedFiles.size() == 1) {
-        filesField.setText(selectedFiles.get(0).getAbsolutePath());
-      } else {
-        filesField.setText(selectedFiles.size() + " files selected");
-      }
+      
+      final String key = "squad-importer-pg-chooser-v5";
+    resetChooserDir(key);
+
+    File tmp = new File("D:\\sdata");
+    if (!tmp.isDirectory()) {
+        tmp = new File(System.getProperty("user.home"));
     }
+    final File start = tmp; // final, no reassignment later
+
+    File file = new FileChooserBuilder(key)
+            .setTitle("Select Squad JSON")
+            .setDefaultWorkingDirectory(start)
+            .setFilesOnly(true)
+            .showOpenDialog();
+
+    if (file == null) return;
+    Logger.getLogger(getClass().getName()).info("Picked: " + file.getAbsolutePath());
   }
+  
+  private static void resetChooserDir(String key) {
+    try {
+        // FileChooserBuilder stores last-used dir under a node named by your key
+        Preferences root = NbPreferences.forModule(FileChooserBuilder.class);
+        if (root.nodeExists(key)) {
+            root.node(key).removeNode();   // delete the node for this chooser
+            root.flush();
+        }
+    } catch (Exception ex) {
+        Logger.getLogger("chooser").fine("Could not reset chooser dir for key=" + key + ": " + ex.getMessage());
+        // It's safe to ignore; worst case NB keeps the old dir.
+    }
+}
 
   public String getSeasonId() {
     String s = seasonField.getText();

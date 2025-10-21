@@ -112,11 +112,12 @@ This ensures FK integrity for roster imports. Logos will be populated during squ
 
 ▶️ Build & Run
 
-# full build
+Full build
+
 mvn clean install
 
-# run the NetBeans Platform app (module depends on your app launcher module)
-# Typically you’ll run the generated application from your IDE or by executing the app module.
+Run the NetBeans Platform app (module depends on your app launcher module)
+Typically you’ll run the generated application from your IDE or by executing the app module.
 
 In the running app:
 

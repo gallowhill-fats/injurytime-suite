@@ -44,7 +44,7 @@
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-netbeans-api-annotations-common</artifactId>
-            <version>RELEASE260</version>
+            <version>${netbeans.release}</version>
         </dependency>
         <dependency>
             <groupId>org.netbeans.cluster</groupId>
@@ -219,18 +219,12 @@
       <version>${project.version}</version>
       <type>nbm</type>
     </dependency>
-    <dependency>
-      <groupId>com.injurytime</groupId>
-      <artifactId>squad.importer</artifactId>
-      <version>${project.version}</version>
-      <type>nbm</type>
-    </dependency>
     
     <dependency>
       <groupId>com.injurytime</groupId>
       <artifactId>libs.hibernate.core</artifactId>
       <version>${project.version}</version>
-      <type>nbm-file</type>
+<!--      <type>nbm-file</type>-->
     </dependency>
     
     <dependency>
@@ -245,13 +239,7 @@
     <artifactId>app.branding</artifactId>
     <version>${project.version}</version>
   </dependency>
-  
-  <dependency>
-    <groupId>com.injurytime</groupId>
-    <artifactId>lib.derby</artifactId>
-    <version>${project.version}</version>
-    <type>nbm</type>
-  </dependency>
+ 
         
         <dependency>
     <groupId>com.injurytime</groupId>
@@ -259,6 +247,55 @@
     <version>${project.version}</version>
     <type>nbm-file</type>
   </dependency>
+  
+  <dependency>
+    <groupId>com.injurytime</groupId>
+    <artifactId>gmail.ingest</artifactId>
+    <version>${project.version}</version>
+    <type>nbm</type>
+ </dependency>
+ 
+ <dependency>
+    <groupId>com.injurytime</groupId>
+    <artifactId>fixtures.events.pg</artifactId>
+    <version>${project.version}</version>
+    <type>nbm</type>
+ </dependency>
+ 
+ <dependency>
+    <groupId>com.injurytime</groupId>
+    <artifactId>fixtures.importer.pg</artifactId>
+    <version>${project.version}</version>
+    <type>nbm</type>
+ </dependency>
+ 
+ <dependency>
+      <groupId>com.injurytime</groupId>
+      <artifactId>libs.postgresql</artifactId>
+      <version>${project.version}</version>
+      <type>nbm</type>
+    </dependency>
+    
+    <dependency>
+    <groupId>com.injurytime</groupId>
+    <artifactId>analysis.api</artifactId>
+    <version>${project.version}</version>
+    <type>nbm</type>
+ </dependency>
+ 
+ <dependency>
+    <groupId>com.injurytime</groupId>
+    <artifactId>analysis.impl.db</artifactId>
+    <version>${project.version}</version>
+    <type>nbm</type>
+ </dependency>
+ 
+    <dependency>
+    <groupId>com.injurytime</groupId>
+    <artifactId>analysis.ui</artifactId>
+    <version>${project.version}</version>
+    <type>nbm</type>
+ </dependency>
     
     </dependencies>
     
@@ -266,7 +303,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>21</maven.compiler.release>
-        <netbeans.release>RELEASE260</netbeans.release>
+<!--        <netbeans.release>RELEASE260</netbeans.release>-->
 <!--        <brandingToken>${brandingToken}</brandingToken>-->
     </properties>
 </project>
