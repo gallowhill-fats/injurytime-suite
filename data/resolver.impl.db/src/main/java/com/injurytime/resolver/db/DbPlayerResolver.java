@@ -11,7 +11,6 @@ import org.apache.commons.text.similarity.JaroWinklerSimilarity;
 import org.openide.util.Lookup;
 import org.openide.util.lookup.ServiceProvider;
 import java.util.Objects;
-import org.openide.util.lookup.ServiceProvider;
 import com.injurytime.resolver.api.PlayerResolver;
 import com.injurytime.resolver.api.ResolutionResult;
 import com.injurytime.resolver.api.SeasonKey;

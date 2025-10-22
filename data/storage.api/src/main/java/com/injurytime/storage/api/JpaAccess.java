@@ -12,9 +12,17 @@ import java.util.function.Function;
  *
  * @author clayton
  */
-
 public interface JpaAccess {
-  <R> R tx(Function<EntityManager, R> work);
-  default void tx(Consumer<EntityManager> work) { tx(em -> { work.accept(em); return null; }); }
-}
 
+    <R> R tx(java.util.function.Function<jakarta.persistence.EntityManager, R> work);
+
+    // rename this so there's no overload clash
+    default void txVoid(java.util.function.Consumer<jakarta.persistence.EntityManager> work)
+    {
+        tx(em ->
+        {
+            work.accept(em);
+            return null;
+        });
+    }
+}

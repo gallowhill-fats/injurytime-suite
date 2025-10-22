@@ -10,18 +10,25 @@ import jakarta.persistence.EntityManager;
 
 import java.util.*;
 import java.util.function.Function;
+import org.openide.util.Lookup;
+import org.openide.util.lookup.ServiceProvider;
 
+
+@ServiceProvider(service = StatsService.class, position = 100)
 public final class StatsServiceDb implements StatsService {
   private final JpaAccess jpa;
 
-  public StatsServiceDb(JpaAccess jpa) { this.jpa = Objects.requireNonNull(jpa); }
+  public StatsServiceDb() {
+        this.jpa = Lookup.getDefault().lookup(JpaAccess.class);
+        if (this.jpa == null) {
+            throw new IllegalStateException("JpaAccess not found in Lookup. Did you register its impl?");
+        }
+    }
 
   @Override
-  public TeamSeasonStats loadTeamSeasonStats(int leagueId, int season, int teamApiId) {
-    return jpa.tx((Function<EntityManager, TeamSeasonStats>) em ->
-    mapTeam(em, leagueId, season, teamApiId)
-);
-  }
+public TeamSeasonStats loadTeamSeasonStats(int leagueId, int season, int teamApiId) {
+    return jpa.<TeamSeasonStats>tx(em -> mapTeam(em, leagueId, season, teamApiId));
+}
 
   @Override
   public List<TeamSeasonStats> loadLeagueTableStats(int leagueId, int season) {
