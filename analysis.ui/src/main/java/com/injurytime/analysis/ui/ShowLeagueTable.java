@@ -15,14 +15,14 @@ import org.openide.util.NbBundle.Messages;
 import org.openide.windows.WindowManager;
 
 @ActionID(category="Tools", id="com.injurytime.analysis.ShowLeagueTable")
-@ActionRegistration(displayName="#CTL_ShowLeagueTable")
+@ActionRegistration(displayName="#ShowLeagueTable_CTL_ShowLeagueTable")
 @ActionReference(path="Menu/Tools", position=1600)
-@Messages("CTL_ShowLeagueTable=Show League Table…")
+@Messages("ShowLeagueTable_CTL_ShowLeagueTable=Show League Table…")
 public final class ShowLeagueTable implements ActionListener {
   @Override public void actionPerformed(ActionEvent e) {
     // prompt (hardcode for first pass)
-    int leagueId = 39; // EPL
-    int season   = 2024;
+    int leagueId = 43; // enl
+    int season   = 2025;
     Integer week = null; // or an Integer value to “as-of”
 
     var svc = Lookup.getDefault().lookup(LeagueTableService.class);

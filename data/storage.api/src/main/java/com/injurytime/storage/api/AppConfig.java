@@ -46,7 +46,16 @@ public final class AppConfig {
             return v;
         }
 
+        // try exact env key first
         v = System.getenv(key);
+        if (v != null && !v.isBlank())
+        {
+            return v;
+        }
+
+        // try ALT env form: injurytime.season.current -> INJURYTIME_SEASON_CURRENT
+        String alt = key.toUpperCase().replace('.', '_');
+        v = System.getenv(alt);
         if (v != null && !v.isBlank())
         {
             return v;

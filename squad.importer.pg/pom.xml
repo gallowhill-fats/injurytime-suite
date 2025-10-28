@@ -83,6 +83,12 @@
       <artifactId>org-openide-util-ui</artifactId>
       <version>${netbeans.release}</version>
     </dependency>
+    <dependency>
+      <groupId>org.netbeans.api</groupId>
+      <artifactId>org-netbeans-api-progress</artifactId>
+      <version>${netbeans.release}</version>
+    </dependency>
+   
 
     <!-- Your APIs -->
     <dependency>

@@ -6,7 +6,7 @@
         <artifactId>injurytime-suite</artifactId>
         <version>1.0.0</version>
     </parent>
-    <artifactId>analysis.impl.db</artifactId>
+    <artifactId>alias.importer.pg</artifactId>
     <packaging>nbm</packaging>
     <build>
         <plugins>
@@ -34,12 +34,39 @@
         </plugins>
     </build>
     <dependencies>
-        <dependency>
-            <groupId>org.netbeans.api</groupId>
-            <artifactId>org-netbeans-api-annotations-common</artifactId>
-            <version>${netbeans.release}</version>
-        </dependency>
-         <dependency>
+       <dependency>
+      <groupId>org.netbeans.api</groupId>
+      <artifactId>org-openide-util</artifactId>
+      <version>${netbeans.release}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.netbeans.api</groupId>
+      <artifactId>org-openide-util-lookup</artifactId>
+      <version>${netbeans.release}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.netbeans.api</groupId>
+      <artifactId>org-openide-awt</artifactId>
+      <version>${netbeans.release}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.netbeans.api</groupId>
+      <artifactId>org-openide-dialogs</artifactId>
+      <version>${netbeans.release}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.netbeans.api</groupId>
+      <artifactId>org-netbeans-api-annotations-common</artifactId>
+      <version>${netbeans.release}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.netbeans.api</groupId>
+      <artifactId>org-openide-util-ui</artifactId>
+      <version>${netbeans.release}</version>
+    </dependency>
+
+    <!-- Your APIs -->
+    <dependency>
       <groupId>com.injurytime</groupId>
       <artifactId>storage.api</artifactId>
       <version>${project.version}</version>
@@ -65,11 +92,18 @@
     </dependency>
 
     <!-- JDBC driver needed at runtime for PG (nbm plugin will bundle it for this module) -->
+<!--    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.7.4</version>
+    </dependency>-->
     <dependency>
       <groupId>com.injurytime</groupId>
-        <artifactId>libs.postgresql</artifactId>
-        <version>${project.version}</version>
+      <artifactId>libs.postgresql</artifactId>
+      <version>${project.version}</version>
     </dependency>
+    
+    
 
     <!-- Annotations used by transitive libs -->
     <dependency>
@@ -80,31 +114,21 @@
     </dependency>
     
     <dependency>
-      <groupId>com.injurytime</groupId>
-      <artifactId>libs.hibernate.core</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.injurytime</groupId>
-      <artifactId>analysis.api</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-  <groupId>org.netbeans.api</groupId>
-  <artifactId>org-openide-util-lookup</artifactId>
-  <version>${netbeans.release}</version>
+  <groupId>com.injurytime</groupId>
+  <artifactId>libs.hibernate.core</artifactId>
+  <version>${project.version}</version>
 </dependency>
     <dependency>
-      <groupId>jakarta.inject</groupId>
-      <artifactId>jakarta.inject-api</artifactId>
-      <version>2.0.1</version>
+      <groupId>org.netbeans.api</groupId>
+      <artifactId>org-openide-filesystems-nb</artifactId>
+      <version>${netbeans.release}</version>
+      <type>jar</type>
     </dependency>
     <dependency>
-      <groupId>com.injurytime</groupId>
-      <artifactId>storage.impl.jpa</artifactId>
-      <version>${project.version}</version>
-      <type>nbm-file</type>
-      <scope>runtime</scope>
+      <groupId>org.netbeans.api</groupId>
+      <artifactId>org-openide-filesystems</artifactId>
+      <version>${netbeans.release}</version>
+      <type>jar</type>
     </dependency>
     </dependencies>
     <properties>
