@@ -19,6 +19,7 @@ import java.time.Duration;
 import java.util.*;
 import java.util.stream.Collectors;
 import jakarta.persistence.EntityManager;
+import java.util.logging.Logger;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionRegistration;
@@ -66,7 +67,7 @@ public final class BulkUpdateSquadsAction implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        int season   = AppConfigExt.getIntOrNull("injurytime.season.current");
+        int season = AppConfigExt.getIntOrNull("injurytime.season.current");
         File start = new File(System.getProperty("user.home"));
         File file = new FileChooserBuilder("squads-bulk-updater")
                 .setTitle("Select club list (api_club_id,club_abbr)")
@@ -198,8 +199,24 @@ public final class BulkUpdateSquadsAction implements ActionListener {
                         jpa.tx((EntityManager em) ->
                         {
                             // ensure club row and update logo/name
-                            ensureClubExistsAndUpdate(em, apiClubId, clubName, clubLogo);
-                            locClub[0] = 1;
+//                            ensureClubExistsAndUpdate(em, apiClubId, clubName, clubLogo);
+//                            locClub[0] = 1;
+                            int logoUpdated = em.createNativeQuery("""
+                            UPDATE club
+                            SET logo_url = COALESCE(:logo, logo_url),
+                            updated_at = now()
+                            WHERE api_club_id = :cid
+                           """)
+                                    .setParameter("logo", clubLogo /* or clubLogo if this is the club logo source */)
+                                    .setParameter("cid", apiClubId)
+                                    .executeUpdate();
+
+                            if (logoUpdated == 0)
+                            {
+                                // club not present — do not create it here; just log and skip
+                                // (we don't want to touch club table from the squad importer)
+                                Logger.getAnonymousLogger().info("Club not found; seed clubs first: " + apiClubId);
+                            }
 
                             for (JsonNode p : playerNodes)
                             {

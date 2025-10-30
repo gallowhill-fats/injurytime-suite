@@ -15,6 +15,14 @@
                 <artifactId>nbm-maven-plugin</artifactId>
                 <version>14.3</version>
                 <extensions>true</extensions>
+                <configuration>
+        <manifest>
+          <localizing-bundle>com/injurytime/monitoring/Bundle.properties</localizing-bundle>
+        </manifest>
+        <requiresRestart>false</requiresRestart>
+        <!-- This wires ModuleInstall -->
+        <installer>com.injurytime.monitoring.Installer</installer>
+      </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -70,12 +78,6 @@
       <artifactId>model.api</artifactId>
       <version>${project.version}</version>
     </dependency>
-        <dependency>
-            <groupId>org.netbeans.api</groupId>
-            <artifactId>org-openide-modules</artifactId>
-            <version>RELEASE260</version>
-            <type>jar</type>
-        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
