@@ -184,17 +184,22 @@ Add .gitattributes:
 
 🗺️ Roadmap (next)
 
-Gmail Alerts → availability_events_raw (OAuth, label filter, store subject/html/snippet + msg_id).
+Gathering internet information sources.
 
-Normalization pipelines → availability_events + rollup to player_availability_current.
-
-Optional bulk “Import Folder (Pg)” action to process multiple squad JSONs in one go.
-
-Backfill club logos from a global clubs JSON (batch).
+Populating player alias database.
 
 Integration with player rating system.
 
-Report writing module to encapsulate availability information per fixture.
+Fixture Dossier writer: pulls together background info on a set of weekly fixtures.
+
+This includes:
+
+* goal stats - clean sheets, over/under, BTTS
+* graph of recent form
+* summaries of recent fixtures
+* top scorers
+* injuries/suspensions
+* score histograms
 
 📜 License
 
