@@ -9,9 +9,13 @@ PostgreSQL schema (Flyway): clubs, players, squad rosters, availability events.
 
 Squad importer (Pg): imports squad JSON files, writes players + roster, updates club logos.
 
-Derby (legacy) → Pg path: we read JSON via app modules; DB now targets Postgres.
+Bulk squad importer  (API-Football -> PG) from csv of team ids.
 
-Seeds: clubs can be preloaded from CSV (with your canonical 3-letter codes).
+Bulk fixture importer (API-Football -> PG) from csv of league ids.
+
+Bulk fixture event importer (API-Football -> PG) from list of completed fixture ids.
+
+Seeds: clubs can be preloaded from CSV (with supplied canonical 3-letter codes).
 
 🧭 Architecture (modules)
 
