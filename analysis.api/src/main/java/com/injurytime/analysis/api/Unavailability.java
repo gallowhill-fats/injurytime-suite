@@ -4,5 +4,5 @@
  */
 package com.injurytime.analysis.api;
 
-/** For “rolling form” or last-5 3-1-0 points per week. */
-  public record WeekPoint(Integer week, double value) {}
+/** Unavailability tuple. */
+  record Unavailability(int playerId, String playerName, String type, String status, String notes) {}

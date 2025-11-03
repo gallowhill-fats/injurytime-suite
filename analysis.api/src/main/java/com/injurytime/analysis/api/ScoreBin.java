@@ -4,5 +4,5 @@
  */
 package com.injurytime.analysis.api;
 
-/** For “rolling form” or last-5 3-1-0 points per week. */
-  public record WeekPoint(Integer week, double value) {}
+ /** Score histogram bin (e.g., “1-0”, 14) — with a special label “other”. */
+  record ScoreBin(String label, int count) {}

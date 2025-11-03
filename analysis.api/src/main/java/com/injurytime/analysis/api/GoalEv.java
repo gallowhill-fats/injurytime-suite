@@ -4,5 +4,4 @@
  */
 package com.injurytime.analysis.api;
 
-/** For “rolling form” or last-5 3-1-0 points per week. */
-  public record WeekPoint(Integer week, double value) {}
+public record GoalEv(int minute, Integer minuteExtra, String player, Boolean isOwnGoal, Boolean isPenalty) {}
