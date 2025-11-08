@@ -22,19 +22,33 @@ public interface DossierService {
       String homeName,
       String awayName,
       java.time.Instant kickUtc,
-      List<StatRow>   teamStatsHome,
-      List<StatRow>   teamStatsAway,
-      List<WeekPoint> last5Home,
-      List<WeekPoint> last5Away,
-      List<ScoreBin>  histHome,
-      List<ScoreBin>  histAway,
-      List<ScoreBin>  histLeague,
-      List<MatchNote> last5NotesHome,
-      List<MatchNote> last5NotesAway,
-      List<Unavailable> unavailableHome,
-      List<Unavailable> unavailableAway,
-      List<Scorer> topScorersHome,
-      List<Scorer> topScorersAway
+
+      // team stats + last5
+      java.util.List<StatRow>   teamStatsHome,
+      java.util.List<StatRow>   teamStatsAway,
+      java.util.List<WeekPoint> last5Home,
+      java.util.List<WeekPoint> last5Away,
+
+      // legacy histograms (kept for compatibility)
+      java.util.List<ScoreBin>  histHome,
+      java.util.List<ScoreBin>  histAway,
+      java.util.List<ScoreBin>  histLeague,
+
+      // ✅ NEW: venue-split histograms (6 lists)
+      java.util.List<ScoreBin>  homeHistAtHome,
+      java.util.List<ScoreBin>  homeHistAway,
+      java.util.List<ScoreBin>  awayHistAtHome,
+      java.util.List<ScoreBin>  awayHistAway,
+      java.util.List<ScoreBin>  leagueHistHome,
+      java.util.List<ScoreBin>  leagueHistAway,
+
+      // notes, availability, scorers
+      java.util.List<MatchNote>    last5NotesHome,
+      java.util.List<MatchNote>    last5NotesAway,
+      java.util.List<Unavailable>  unavailableHome,
+      java.util.List<Unavailable>  unavailableAway,
+      java.util.List<Scorer>       topScorersHome,
+      java.util.List<Scorer>       topScorersAway
   ) {}
 
   /** Code = stat key (“n”, “p”, “ppg”, …), cnt, % and per-game. */

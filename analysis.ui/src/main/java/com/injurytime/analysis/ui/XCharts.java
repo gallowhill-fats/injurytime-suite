@@ -4,11 +4,18 @@
  */
 package com.injurytime.analysis.ui;
 
+import java.awt.Color;
 import org.knowm.xchart.*;
 import org.knowm.xchart.style.markers.None;
 
 import javax.swing.*;
 import java.util.List;
+import org.knowm.xchart.style.CategoryStyler;
+
+// imports you likely already have:
+// import org.knowm.xchart.*;
+// import org.knowm.xchart.style.markers.None;
+// import java.awt.Color;
 
 final class XCharts {
 
@@ -22,6 +29,7 @@ final class XCharts {
     return new XChartPanel<>(c);
   }
 
+  // OLD histogram kept for reference
   static JPanel bars(String title, List<String> bins, List<? extends Number> counts) {
     CategoryChart c = new CategoryChartBuilder().width(700).height(300).title(title)
         .xAxisTitle("Score").yAxisTitle("Count").build();
@@ -29,5 +37,44 @@ final class XCharts {
     c.getStyler().setXAxisLabelRotation(45);
     return new XChartPanel<>(c);
   }
+  
+  // add this in your XCharts class
+static JPanel barsHomeAwayStacked(String title,
+                                  java.util.List<String> scoreBins,
+                                  java.util.List<? extends Number> homeCounts,
+                                  java.util.List<? extends Number> awayCounts) {
+  var c = new org.knowm.xchart.CategoryChartBuilder()
+      .width(800).height(340).title(title)
+      .xAxisTitle("Score").yAxisTitle("Frequency")
+      .build();
+  c.getStyler().setStacked(true);
+  c.getStyler().setLegendVisible(true);
+  c.getStyler().setToolTipsEnabled(true);
+  enableAnnotations(c.getStyler(), true);
+  c.getStyler().setXAxisLabelRotation(30);
+  c.getStyler().setAvailableSpaceFill(0.9);
+  c.getStyler().setSeriesColors(new java.awt.Color[]{
+      new java.awt.Color(52,120,246), // Home
+      new java.awt.Color(246,92,104)  // Away
+  });
+  c.addSeries("Home", scoreBins, homeCounts);
+  c.addSeries("Away", scoreBins, awayCounts);
+  return new org.knowm.xchart.XChartPanel<>(c);
 }
+
+// put this in the same class where you build charts
+private static void enableAnnotations(Object styler, boolean enabled) {
+  try {
+    styler.getClass().getMethod("setHasAnnotations", boolean.class).invoke(styler, enabled);
+  } catch (NoSuchMethodException e1) {
+    try {
+      styler.getClass().getMethod("setAnnotationsEnabled", boolean.class).invoke(styler, enabled);
+    } catch (Exception ignore) { /* older XChart without annotations */ }
+  } catch (Exception ignore) { /* reflection failed — ignore */ }
+}
+
+
+
+}
+
 
